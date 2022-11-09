@@ -60,7 +60,6 @@ function drawKeypoints() {
   console.log("length", length);
   for (let i = 0; i < poselength; i++) {
     // For each pose detected, loop through all the keypoints
-    console.log(i);
     let pose = poses[i].pose;
     // console.log(poses[0])
     let leftWrist = pose.leftWrist;
