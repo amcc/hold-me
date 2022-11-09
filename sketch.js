@@ -34,6 +34,7 @@ function setup() {
   video.hide();
 
   checkbox = createCheckbox("see multiple people", false);
+  checkbox.position(10,30)
   // checkbox.changed(myCheckedEvent);
 }
 
