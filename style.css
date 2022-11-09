@@ -1,0 +1,19 @@
+html, body {
+  margin: 0;
+  padding: 10;
+  font-family: "Recursive";
+  font-weight: 100;
+}
+
+canvas {
+  display: block;
+}
+
+p,h1 {
+  margin: 2vw;
+}
+
+.variable {
+  margin:0;
+  font-variation-settings: "CASL" 0, "MONO" 0.3;
+}
