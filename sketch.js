@@ -33,8 +33,7 @@ function setup() {
   // Hide the video element, and just show the canvas
   video.hide();
 
-  checkbox = createCheckbox("see multiple people", false);
-  checkbox.position(10,30)
+  checkbox = select('#multiple-people')
   // checkbox.changed(myCheckedEvent);
 }
 
