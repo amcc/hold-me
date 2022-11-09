@@ -14,7 +14,8 @@ let poses = [];
 let textString = "hold me!";
 let conf = 0.4;
 let poseArms = [];
-  let ratio = 480 / 640;
+let ratio = 480 / 640;
+let checkbox;
 
 function setup() {
   createCanvas(windowWidth, windowWidth * ratio);
@@ -31,6 +32,9 @@ function setup() {
   });
   // Hide the video element, and just show the canvas
   video.hide();
+
+  checkbox = createCheckbox("see multiple people", false);
+  // checkbox.changed(myCheckedEvent);
 }
 
 function modelReady() {
@@ -50,8 +54,13 @@ function draw() {
 // A function to draw ellipses over the detected keypoints
 function drawKeypoints() {
   fill(0);
-  for (let i = 0; i < poses.length; i++) {
+  const poselength =
+    poses.length > 0 ? (checkbox.checked() ? poses.length : 1) : 0;
+
+  console.log("length", length);
+  for (let i = 0; i < poselength; i++) {
     // For each pose detected, loop through all the keypoints
+    console.log(i);
     let pose = poses[i].pose;
     // console.log(poses[0])
     let leftWrist = pose.leftWrist;
@@ -73,7 +82,7 @@ function drawKeypoints() {
 
       let textScaler = (d / textString.length) * 2;
 
-      push()
+      push();
       noStroke();
       translate(poseArms[i].rx, poseArms[i].ry);
       let a = atan2(
@@ -83,7 +92,7 @@ function drawKeypoints() {
       rotate(a);
       textSize(textScaler);
       text(textString, 0, 0);
-      pop()
+      pop();
       // stroke(255,0,0)
       // strokeWeight(10)
       // point(poseArms[i].lx,poseArms[i].ly)
